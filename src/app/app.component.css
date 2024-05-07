@@ -1,0 +1,9 @@
+.card{
+    align-items: center;
+    justify-content: center;
+}
+
+.botonLogin{
+    background-color:black;
+    color: aquamarine;
+}
