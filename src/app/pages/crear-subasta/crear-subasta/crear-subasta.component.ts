@@ -9,4 +9,24 @@ import { Component } from '@angular/core';
 })
 export class CrearSubastaComponent {
 
+  imageUrl: string | ArrayBuffer | null = null;
+  
+
+  mostrarImagen(event:any){
+    let archivo = event.target.files[0];
+    let vistaPrevia = document.getElementById("vista-previa");
+    
+    if(archivo){
+      let lector = new FileReader();
+      lector.readAsDataURL(archivo);
+      lector.onload = () =>{
+        this.imageUrl = lector.result as string;
+      }
+    }
+
+
+    
+  }
+
+  
 }

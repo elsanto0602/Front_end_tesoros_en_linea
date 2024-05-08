@@ -1,0 +1,43 @@
+.btn{
+    color: #000;
+    font-weight: 500;
+    
+}
+
+
+
+input, textarea, select{
+    width: 30rem;
+    border-color: #000;
+}
+
+label{
+    font-weight: 600;
+}
+.container{
+    justify-content: center;
+}
+.mb-3{
+    align-items: center;
+}
+
+#vista-previa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 10rem;
+    
+     /* Ajusta la altura según tu preferencia */
+    border: 1px solid #ccc; /* Borde opcional */
+}
+
+#vista-previa img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}

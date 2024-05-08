@@ -1,1 +1,47 @@
-<p>crear-subasta works!</p>
+<div class="container">
+    <h1>Crear Subasta</h1>
+    <form>
+        
+        <div class="form-group">
+            <label for="imagen">Agregar Foto</label>
+            <input type="file" class="form-control" id="inputGroupFile01"(change)="mostrarImagen($event)" required>
+            
+          </div>
+          <div id = "vista-previa">
+            <img [src]="imageUrl" alt="Imagen seleccioanada">
+          </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nombre del Producto</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Descripción del Producto</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Precio Inicial</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Monto para Pujar</label>
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+        </div>
+        <div class="mb-3">
+            <label for="exampleDataList" class="form-label">Tipo de Subasta</label>
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                <option selected>Pública</option>
+                <option value="1">Privada</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" />
+        </div>
+        <button type="submit" class="btn btn-primary">Crear Subasta</button>
+    </form>
+</div>
