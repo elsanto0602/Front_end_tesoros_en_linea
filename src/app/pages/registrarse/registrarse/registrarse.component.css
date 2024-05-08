@@ -1,0 +1,23 @@
+.btn{
+    color: #000;
+    font-weight: 500;
+    
+}
+
+input{
+    width: 30rem;
+}
+
+label{
+    font-weight: 600;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mb-3{
+    align-items: center;
+}
+
+
