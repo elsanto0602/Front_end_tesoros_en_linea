@@ -51,9 +51,9 @@ export class RegistrarseComponent {
     confirmClave:['',Validators.required]
   },{validators:contrasenaMatch});
 
-  clickRegister() : boolean{
+  clickRegister(){
     // console.log(this.formGroup.get("names")?.value as string);
-    let estado : boolean = false;
+    
     const name = this.namesField.value;
     const email = this.emailField.value;
     const telefono = this.telefonoField.value;
@@ -62,29 +62,23 @@ export class RegistrarseComponent {
     const confirmClave = this.confirmClaveField.value;
     
     if(this.formGroup.valid){
+      //se crea el objeto usuario
       this.newUsuario = {
         name,
         email,
         telefono,
         pais,
-        clave,
-        confirmClave
+        clave
       };
+
+      this.enviar(this.newUsuario)
       
       console.log('IF----->',this.formGroup.valid);
       //TODO --> CONFIGURAR ENDPOINTS EN BACKEND Y EN FRONT
       //TODO --> DIRECCIONAR AL LOGIN
       console.log(this.newUsuario);
-      this._userService.signIn(this.newUsuario).subscribe(data =>{
-        console.log("el usuario fue registrado con existo");
-        Swal.fire({
-          icon: "success",
-          title: `Usuario ${this.newUsuario.name} registrado con éxito`,
-          text: "Ingresa a la sesión",
-          confirmButtonColor:"#0d6efd"
-        });
-      })
-      return estado;
+      
+      return;
       
     }
     else if(this.emailField.hasError('email')){
@@ -94,7 +88,7 @@ export class RegistrarseComponent {
         text: "Ingrese correctamente el correo",
         confirmButtonColor:"#0d6efd"
       });
-      return estado;
+      return;
       
     }
     else if(!(!contrasenaMatch)){
@@ -104,7 +98,7 @@ export class RegistrarseComponent {
         text: "Ingrese correctamente las contraseñas",
         confirmButtonColor:"#0d6efd"
       });
-      return estado
+      return
     }
     else{
       Swal.fire({
@@ -113,9 +107,29 @@ export class RegistrarseComponent {
         text: "Ingrese todos los campos",
         confirmButtonColor:"#0d6efd"
       });
-      return estado;
+      return;
     }
     
+
+  }
+
+
+  enviar(usuario:UsuarioInterface){
+    
+    try {
+      this._userService.signIn(usuario).subscribe(data =>{
+        console.log("el usuario fue registrado con existo");
+        Swal.fire({
+          icon: "success",
+          title: `Usuario ${this.newUsuario.name} registrado con éxito`,
+          text: "Ingresa a la sesión",
+          confirmButtonColor:"#0d6efd"
+        });
+        this.router.navigate(['/login'])
+      })
+    } catch (error) {
+      console.error(error)
+    }
 
   }
 

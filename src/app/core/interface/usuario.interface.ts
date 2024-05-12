@@ -4,5 +4,5 @@ export interface UsuarioInterface{
     telefono : string,
     pais : string,
     clave : string,
-    confirmClave:string
+    confirmClave?:string
 }

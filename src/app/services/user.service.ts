@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { UsuarioInterface } from '../core/interface/usuario.interface';
 import { Observable } from 'rxjs';
 
@@ -14,10 +14,12 @@ export class UserService {
 
   constructor(private http:HttpClient) {
     this.myAppUrl = environment.endpoint;
-    this.myApiUrl = 'api/users/'
+    this.myApiUrl = '/signup'
    }
 
    signIn(user:UsuarioInterface):Observable<any>{
+    console.log("entre al signin");
+    
     return this.http.post(`${this.myAppUrl}${this.myApiUrl}`,user)
    }
 }
