@@ -23,8 +23,6 @@ export class CrearSubastaComponent {
         this.imageUrl = lector.result as string;
       }
     }
-
-
     
   }
 

@@ -1,21 +1,23 @@
 <div class="container">
-    <form>
+    <form class="form" [formGroup]="formGroup">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nombre Completo</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input formControlName="names" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            
+            <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            @if (formGroup.controls.email.hasError('email')) {
+                <label style="color: red;">Ingresa correctamente el correo</label>
+            }
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Teléfono</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input formControlName="telefono" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </div>
         <div class="mb-3">
             <label for="exampleDataList" class="form-label">País</label>
-            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." />
+            <input formControlName="pais" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." />
             <datalist id="datalistOptions">
                 <option value="San Francisco"></option>
                 <option value="New York"></option>
@@ -26,8 +28,12 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" />
+            <input formControlName="clave" type="password" class="form-control" id="exampleInputPassword1" />
         </div>
-        <button type="submit" class="btn btn-primary">Crear Usuario</button>
+        <button (click)="clickRegister()"  type="submit" class="btn btn-primary">Crear Usuario</button>
+        
+            
+        <!-- <label style="color: red;">Valida todos los campos</label> -->
+        
     </form>
 </div>

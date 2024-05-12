@@ -21,6 +21,14 @@ export const MenuRoutes : MenuInterface[] = [
         title:'Iniciar Sesión',
         icon:'',
         classCss:'',
+        subMenu: [
+        ]
+    },
+    {
+        path:PATH.VER_USUARIOS,
+        title:'Ver Usuarios',
+        icon:'',
+        classCss:'',
         subMenu: []
     },
     {

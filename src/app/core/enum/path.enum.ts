@@ -3,5 +3,6 @@ export enum PATH{
     LOGIN = "login",
     CREAR_SUBASTA = "crear_subasta",
     INICIO = "inicio",
-    REGISTRARSE = "registro"
+    REGISTRARSE = "registro",
+    VER_USUARIOS ="users"
 }
