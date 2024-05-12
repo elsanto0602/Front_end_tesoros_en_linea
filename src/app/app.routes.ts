@@ -36,6 +36,13 @@ export const routes: Routes = [
         title: 'Usuarios',
         component: VerUsuariosComponent,
       },
+      
     ],
   },
+  {
+    path:'**',
+    redirectTo:'Login',
+    pathMatch:'full'
+  }
+  
 ];

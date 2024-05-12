@@ -38,4 +38,10 @@ export const MenuRoutes : MenuInterface[] = [
         classCss:'',
         subMenu: []
     },
+    {
+        path:'**',
+        title:"Login",
+        redirectTo:'Login',
+        pathMatch:'full'
+      }
 ]
