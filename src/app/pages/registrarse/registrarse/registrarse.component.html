@@ -1,5 +1,6 @@
 <div class="container">
     <h1 class="mb-5">Registrar Usuario</h1>
+    @if(!cargando){
     <form class="form" [formGroup]="formGroup">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nombre Completo</label>
@@ -39,4 +40,9 @@
         <!-- <label style="color: red;">Valida todos los campos</label> -->
         
     </form>
+}
+    @else {
+        <app-spinner></app-spinner>
+    }
+    
 </div>
