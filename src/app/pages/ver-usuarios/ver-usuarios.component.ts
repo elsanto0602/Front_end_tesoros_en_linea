@@ -8,9 +8,16 @@ import { RegistrarseComponent } from '../registrarse/registrarse/registrarse.com
   templateUrl: './ver-usuarios.component.html',
   styleUrl: './ver-usuarios.component.css',
 })
-export class VerUsuariosComponent implements OnInit {
-  private readonly _usuariosApi = inject(RegistrarseComponent)
-  ngOnInit(): void {
+export class VerUsuariosComponent{
+  // private readonly _usuariosApi = inject(RegistrarseComponent)
+  // ngOnInit(): void {
+
+  // }
+  constructor(){
+    console.log("VER USUARIOS IN DA HOUSE");
 
   }
+  
+  
+  
 }

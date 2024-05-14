@@ -12,24 +12,29 @@ import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UsuarioInterface } from '../../../core/interface/usuario.interface';
 import { UserService } from '../../../services/user.service';
+import { VerUsuariosComponent } from '../../ver-usuarios/ver-usuarios.component';
+import { HttpErrorResponse } from '@angular/common/http';
+import { SpinnerComponent } from '../../../shared/spinner/spinner.component';
+import { ErrorService } from '../../../services/error.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule,RouterLink,SpinnerComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
   private readonly _formBuilder = inject(FormBuilder);
-
+  cargando: boolean = false;
   confirmarUsuario: UsuarioInterface = {
    
     email: '',
     clave: '',
   };
 
-  constructor(private _userService: UserService, private router: Router) {
+  constructor(private _userService: UserService, private router: Router,
+    private _errorService: ErrorService) {
     console.log('NOPASANADA');
   }
 
@@ -47,11 +52,15 @@ export class LoginComponent {
         email,
         clave
       }
-
+      this.cargando = true;
       this._userService.login(this.confirmarUsuario).subscribe({
         next: (data) => {
           console.log(data);
+          this.router.navigate(['/login/users'])
+        },
+        error:(e:HttpErrorResponse)=>{
           
+          this._errorService.msjError(e);
         }
       })
     } else if (this.emailField.hasError('email')) {
@@ -65,7 +74,7 @@ export class LoginComponent {
     } else {
       Swal.fire({
         icon: 'error',
-        title: `Todos los campos son obligatorios ${this.formGroup}`,
+        title: `Todos los campos son obligatorios `,
         text: 'Ingrese todos los campos',
         confirmButtonColor: '#0d6efd',
       });

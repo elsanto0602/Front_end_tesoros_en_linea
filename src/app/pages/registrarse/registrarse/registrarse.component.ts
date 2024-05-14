@@ -13,6 +13,7 @@ import { contrasenaMatch } from './registrarse.custom.validators';
 import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorService } from '../../../services/error.service';
 
 @Component({
   selector: 'app-registrarse',
@@ -37,8 +38,12 @@ export class RegistrarseComponent {
     confirmClave: '',
   };
 
-  constructor(private _userService: UserService, private router: Router) {
-    console.log('NOPASANADA');
+  constructor(
+    private _userService: UserService,
+    private router: Router,
+    private _errorService: ErrorService
+  ) {
+    //console.log('NOPASANADA');
   }
 
   formGroup = this._formBuilder.nonNullable.group(
@@ -122,24 +127,11 @@ export class RegistrarseComponent {
           });
           this.router.navigate(['/login']);
         },
-        error: (e:HttpErrorResponse) => {
+        error: (e: HttpErrorResponse) => {
           this.cargando = false;
-          if (e.error.msg) {
-            Swal.fire({
-              icon: 'error',
-              title: `${e.error.msg}`,
-              text: 'Intenta de nuevo',
-              confirmButtonColor: '#0d6efd',
-            });
-          } else {
-            Swal.fire({
-              icon: 'error',
-              title: `No fue posible crear el usuario`,
-              text: 'Intenta de nuevo',
-              confirmButtonColor: '#0d6efd',
-            });
-          }
-        }
+          this._errorService.msjError(e);
+        },
+        
       });
     } catch (error) {
       console.error(error);

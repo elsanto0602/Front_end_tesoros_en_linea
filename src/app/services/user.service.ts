@@ -14,13 +14,13 @@ export class UserService {
 
   constructor(private http:HttpClient) {
     this.myAppUrl = environment.endpoint;
-    this.myApiUrl = 'api/users'
+    this.myApiUrl = 'api'
    }
 
    signIn(user:UsuarioInterface):Observable<any>{
     console.log("entre al signin");
     
-    return this.http.post(`${this.myAppUrl}${this.myApiUrl}`,user)
+    return this.http.post(`${this.myAppUrl}${this.myApiUrl}/users`,user)
    }
 
    login(user:UsuarioInterface):Observable<string>{

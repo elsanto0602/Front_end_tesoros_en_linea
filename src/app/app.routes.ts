@@ -17,11 +17,6 @@ export const routes: Routes = [
         component: InicioComponent,
       },
       {
-        path: PATH.LOGIN,
-        title: 'Login',
-        component: LoginComponent,
-      },
-      {
         path: PATH.REGISTRARSE,
         title: 'Registro',
         component: RegistrarseComponent,
@@ -31,18 +26,22 @@ export const routes: Routes = [
         title: 'Crear Subasta',
         component: CrearSubastaComponent,
       },
+      
+      
+    ],
+  },
+  {
+    path: PATH.LOGIN,
+    title: 'Login',
+    component: LoginComponent,
+    children:[
       {
         path: PATH.VER_USUARIOS,
         title: 'Usuarios',
         component: VerUsuariosComponent,
       },
-      
-    ],
+    ]
   },
-  {
-    path:'**',
-    redirectTo:'Login',
-    pathMatch:'full'
-  }
+  
   
 ];
