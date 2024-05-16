@@ -20,28 +20,30 @@ export const routes: Routes = [
         path: PATH.REGISTRARSE,
         title: 'Registro',
         component: RegistrarseComponent,
+      },      
+      
+      
+      {
+        path: PATH.LOGIN,
+        title: 'Login',
+        component: LoginComponent,
+        children:[
+        ]
       },
       {
         path: PATH.CREAR_SUBASTA,
         title: 'Crear Subasta',
         component: CrearSubastaComponent,
       },
-      
-      
-    ],
-  },
-  {
-    path: PATH.LOGIN,
-    title: 'Login',
-    component: LoginComponent,
-    children:[
       {
         path: PATH.VER_USUARIOS,
         title: 'Usuarios',
         component: VerUsuariosComponent,
       },
-    ]
+      
+    ],
   },
+  
   
   
 ];

@@ -56,10 +56,16 @@ export class LoginComponent {
       this._userService.login(this.confirmarUsuario).subscribe({
         next: (data) => {
           console.log(data);
-          this.router.navigate(['/login/users'])
+          this.router.navigate(['/login/crear_subasta'])
+          Swal.fire({
+            icon: 'success',
+            title: `Bienvenid@ de nuevo!`,
+            text: '',
+            confirmButtonColor: '#0d6efd',
+          });
         },
         error:(e:HttpErrorResponse)=>{
-          
+          this.cargando = false;
           this._errorService.msjError(e);
         }
       })

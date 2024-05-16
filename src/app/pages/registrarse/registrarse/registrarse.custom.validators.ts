@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from "@angular/forms";
 
 export const contrasenaMatch: ValidatorFn = (
     formGroupControl : AbstractControl<{clave:string; confirmClave:string}>
@@ -9,3 +9,4 @@ export const contrasenaMatch: ValidatorFn = (
     return clave !== confirmClave ? {confirmarPassError:true}:null
 
 }
+

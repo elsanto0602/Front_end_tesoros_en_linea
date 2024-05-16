@@ -23,7 +23,7 @@ export class UserService {
     return this.http.post(`${this.myAppUrl}${this.myApiUrl}/users`,user)
    }
 
-   login(user:UsuarioInterface):Observable<string>{
-    return this.http.post<string>(`${this.myAppUrl}${this.myApiUrl}/login`,user)
+   login(user:UsuarioInterface):Observable<any>{
+    return this.http.post<string>(`${this.myAppUrl}auth`,user)
    }
 }
