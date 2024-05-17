@@ -10,27 +10,27 @@ export const MenuRoutes : MenuInterface[] = [
         subMenu: []
     },
     {
+        path:PATH.LOGIN,
+        title:'Iniciar Sesión',
+        icon:'',
+        classCss:'',
+        subMenu: [
+        ]
+    },
+    {
         path:PATH.CREAR_SUBASTA,
         title:'Crear Subasta',
         icon:'',
         classCss:'',
         subMenu: []
     },
+
     {
-        path:PATH.LOGIN,
-        title:'Iniciar Sesión',
+        path:PATH.VER_USUARIOS,
+        title:'Ver Usuarios',
         icon:'',
         classCss:'',
-        subMenu: [
-
-            {
-                path:PATH.VER_USUARIOS,
-                title:'Ver Usuarios',
-                icon:'',
-                classCss:'',
-                subMenu: []
-            },
-        ]
+        subMenu: []
     },
     {
         path:PATH.REGISTRARSE,

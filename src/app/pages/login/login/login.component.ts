@@ -57,6 +57,7 @@ export class LoginComponent {
         next: (data) => {
           console.log(data);
           this.router.navigate(['/login/crear_subasta'])
+          this.cargando = false;
           Swal.fire({
             icon: 'success',
             title: `Bienvenid@ de nuevo!`,

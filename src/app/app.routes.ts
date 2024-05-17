@@ -16,20 +16,7 @@ export const routes: Routes = [
         title: 'Home',
         component: InicioComponent,
       },
-      {
-        path: PATH.REGISTRARSE,
-        title: 'Registro',
-        component: RegistrarseComponent,
-      },      
       
-      
-      {
-        path: PATH.LOGIN,
-        title: 'Login',
-        component: LoginComponent,
-        children:[
-        ]
-      },
       {
         path: PATH.CREAR_SUBASTA,
         title: 'Crear Subasta',
@@ -40,6 +27,19 @@ export const routes: Routes = [
         title: 'Usuarios',
         component: VerUsuariosComponent,
       },
+      
+      {
+        path: PATH.LOGIN,
+        title: 'Login',
+        component: LoginComponent,
+        children:[
+        ]
+      },
+      {
+        path: PATH.REGISTRARSE,
+        title: 'Registro',
+        component: RegistrarseComponent,
+      },      
       
     ],
   },
