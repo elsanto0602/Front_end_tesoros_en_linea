@@ -53,7 +53,7 @@ export class RegistrarseComponent {
       telefono: ['', Validators.required],
       pais: ['', Validators.required],
       clave: ['', Validators.required],
-      confirmClave: ['', Validators.required],
+      confirmClave: ['', Validators.required ],
     },
     { validators: contrasenaMatch }
   );
@@ -91,6 +91,15 @@ export class RegistrarseComponent {
         icon: 'error',
         title: 'Error en el correo',
         text: 'Ingrese correctamente el correo',
+        confirmButtonColor: '#0d6efd',
+      });
+      return;
+    }
+    else if(this.claveField.hasError('minLength')){
+      Swal.fire({
+        icon: 'error',
+        title: 'Clave no cumple requisitos',
+        text: 'Ingrese al menos 9 caracteres incluyendo al menos 1 número  y 1 caractér down',
         confirmButtonColor: '#0d6efd',
       });
       return;

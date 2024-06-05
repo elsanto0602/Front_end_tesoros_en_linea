@@ -1,38 +1,44 @@
 <div class="container">
     <h1>Crear Subasta</h1>
     <form class="form" [formGroup]="formGroup">
-        
+
         <div class="form-group">
             <label for="imagen">Agregar Foto</label>
-            <input formControlName="foto_producto" type="file" class="form-control" id="inputGroupFile01"(change)="mostrarImagen($event)" required>
-            
-          </div>
-          <div id = "vista-previa">
-            <img [src]="imageUrl" alt="Imagen seleccioanada">
-          </div>
+            <input  type="file" class="form-control " id="inputGroupFile01"
+                (change)="mostrarImagen($event)" required>
+
+        </div>
+        <div id="vista-previa">
+            <img [src]="imageUrl" alt="Selecciona imágen">
+        </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nombre del Producto</label>
-            <input formControlName="nombre_producto" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input formControlName="nombre_producto" type="text" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" />
         </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Descripción del Producto</label>
-            <textarea formControlName="descripcion_producto" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea formControlName="descripcion_producto" class="form-control" id="exampleFormControlTextarea1"
+                rows="3"></textarea>
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Precio Inicial</label>
-            <input formControlName="precio_inicial" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input formControlName="precio_inicial" type="number" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" />
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Precio mínimo</label>
-            <input formControlName="precio_minimo" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            
+            <input formControlName="precio_minimo" type="number" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" />
+
         </div>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Monto para Pujar</label>
-            <input formControlName="monto_puja" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <input formControlName="monto_puja" type="number" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" />
         </div>
-        
-        
+
+
         <button (click)="crearSubasta()" type="submit" class="btn btn-primary">Crear Subasta</button>
     </form>
 </div>

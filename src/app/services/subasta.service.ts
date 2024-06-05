@@ -22,4 +22,7 @@ export class SubastaService {
     
     return this.http.post(`${this.myAppUrl}${this.myApiUrl}/auctions`,subasta)
    }
+   getSubastas(){
+    return  this.http.get(`${this.myAppUrl}${this.myApiUrl}/auctions`)
+   }
 }

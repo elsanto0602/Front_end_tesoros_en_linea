@@ -21,7 +21,7 @@ export class ErrorService {
     } else {
       Swal.fire({
         icon: 'error',
-        title: `No fue posible ${e}`,
+        title: `No fue posible ${e.message}`,
         text: 'Intenta de nuevo',
         confirmButtonColor: '#0d6efd',
       });

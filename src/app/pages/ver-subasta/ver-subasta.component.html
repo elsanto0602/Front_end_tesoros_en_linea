@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Foto</th>
+        <th scope="col">ID Subasta</th>
+        <th scope="col">Nombre Producto</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Precio Inicial</th>
+        <th scope="col">Precio Minimo</th>
+        <th scope="col">Monto Puja</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (subasta of data; track $index) {
+      <tr>
+        
+        <th scope="row"><img [src]="subasta.foto_producto"></th>
+        <td>{{subasta._id}}</td>
+        <td>{{subasta.nombre_producto}}</td>
+        <td>{{subasta.descripcion_producto}}</td>
+        <td>{{subasta.precio_inicial}}</td>
+        <td>{{subasta.precio_minimo}}</td>
+        <td>{{subasta.monto_puja}}</td>
+        
+      </tr>
+    }
+      
+    </tbody>
+  </table>

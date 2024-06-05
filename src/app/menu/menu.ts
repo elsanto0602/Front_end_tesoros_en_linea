@@ -26,8 +26,8 @@ export const MenuRoutes : MenuInterface[] = [
     },
 
     {
-        path:PATH.VER_USUARIOS,
-        title:'Ver Usuarios',
+        path:PATH.VER_SUBASTAS,
+        title:'Ver Subastas',
         icon:'',
         classCss:'',
         subMenu: []

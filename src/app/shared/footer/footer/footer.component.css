@@ -3,4 +3,10 @@ footer{
     margin-top: 2rem;
     background-color: #007bff;
     margin-top: auto;
+    
+}
+
+p{
+    text-align: justify;
+    
 }

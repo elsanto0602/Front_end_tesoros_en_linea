@@ -12,7 +12,7 @@ import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UsuarioInterface } from '../../../core/interface/usuario.interface';
 import { UserService } from '../../../services/user.service';
-import { VerUsuariosComponent } from '../../ver-usuarios/ver-usuarios.component';
+//import { VerUsuariosComponent } from '../../ver-usuarios/ver-usuarios.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SpinnerComponent } from '../../../shared/spinner/spinner.component';
 import { ErrorService } from '../../../services/error.service';

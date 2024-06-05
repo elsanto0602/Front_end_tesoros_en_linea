@@ -1,0 +1,20 @@
+<div class="subastas">
+@for (subasta of data; track $index) {
+
+<div class="card" style="width: 28rem;">
+    <img [src]="subasta.foto_producto" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{subasta.nombre_producto}}</h5>
+      <p class="card-text">{{subasta.descripcion_producto}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Precio inicial: ${{subasta.precio_inicial}}</li>
+      <li class="list-group-item">Precio mínimo: ${{subasta.precio_minimo}}</li>
+      <li class="list-group-item">Monto puja: ${{subasta.monto_puja}}</li>
+    </ul>
+    <div class="card-body">
+        <a href="#" class="btn btn-primary">Subastar</a>
+    </div>
+  </div>
+}
+</div>

@@ -17,6 +17,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class CrearSubastaComponent {
   imageUrl: string | ArrayBuffer | null = null;
+  archivo:any;
+  
   cargando: boolean = false;
   private readonly _formBuilder = inject(FormBuilder);
 
@@ -25,7 +27,7 @@ export class CrearSubastaComponent {
     private router:Router,
     private _errorService:ErrorService
   ){
-
+    
   }
 
   newSubasta: SubastaInterface = {
@@ -40,7 +42,7 @@ export class CrearSubastaComponent {
   formGroup = this._formBuilder.nonNullable.group(
     {
       nombre_producto: ['', Validators.required],
-      foto_producto: ['', ],
+      // foto_producto: ['', ],
       descripcion_producto: ['', Validators.required],
       precio_inicial: ['', Validators.required],
       precio_minimo: ['', Validators.required],
@@ -50,8 +52,10 @@ export class CrearSubastaComponent {
 
 
   crearSubasta(){
+    const fd = new FormData();
+    
     const nombre_producto = this.nombre_productoField.value;
-    const foto_producto = this.foto_productoField.value;
+    const foto_producto = this.imageUrl;
     const descripcion_producto = this.descripcion_productoField.value;
     const precio_inicial = this.precio_inicialField.value;
     const precio_minimo = this.precio_minimoField.value;
@@ -71,7 +75,9 @@ export class CrearSubastaComponent {
       this.enviar(this.newSubasta);
 
       console.log(typeof(this.monto_pujaField.value));
-      console.log(this.foto_productoField);  
+      // console.log(this.foto_productoField);  
+      console.log(foto_producto);
+      
     }
     else {
       Swal.fire({
@@ -118,11 +124,13 @@ export class CrearSubastaComponent {
   }
 
   mostrarImagen(event: any) {
-    let archivo = event.target.files[0];
+    this.archivo = event.target.files[0];
     let vistaPrevia = document.getElementById('vista-previa');
-    if (archivo) {
+    if (this.archivo) {
       let lector = new FileReader();
-      lector.readAsDataURL(archivo);
+      lector.readAsDataURL(this.archivo);
+      console.log(lector);
+      
       lector.onload = () => {
         this.imageUrl = lector.result as string;
       };
@@ -132,9 +140,9 @@ export class CrearSubastaComponent {
   get nombre_productoField(): FormControl<string> {
     return this.formGroup.controls.nombre_producto;
   }
-  get foto_productoField(): FormControl<string> {
-    return this.formGroup.controls.foto_producto;
-  }
+  // get foto_productoField(): FormControl<string> {
+  //   return this.formGroup.controls.foto_producto;
+  // }
   get descripcion_productoField(): FormControl<string> {
     return this.formGroup.controls.descripcion_producto;
   }

@@ -6,6 +6,7 @@
 
 
 
+
 input, textarea, select{
     width: 30rem;
     border-color: #000;
@@ -23,10 +24,10 @@ label{
 
 #vista-previa {
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 10rem;
     width: 10rem;
+    justify-content: center;
+    align-items: center;
     
      /* Ajusta la altura según tu preferencia */
     border: 1px solid #ccc; /* Borde opcional */
@@ -35,6 +36,7 @@ label{
 #vista-previa img {
     max-width: 100%;
     max-height: 100%;
+    justify-content: center;
 }
 
 .form-group{
