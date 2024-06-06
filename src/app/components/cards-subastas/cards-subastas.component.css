@@ -7,3 +7,7 @@
 .card span{
     flex-direction: column;
 }
+img{
+    max-width: 30rem;
+    max-height: 20rem;
+}

@@ -30,12 +30,16 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input formControlName="clave" type="password" class="form-control" id="exampleInputPassword1" />
+            <input [formControl]="this.claveField" formControlName="clave" type="password" class="form-control" id="exampleInputPassword1" />
+            @if (this.claveField.hasError('minlength')) {
+                <label style="color: red;">Al menos 8 carácteres</label>
+            }
+            
+        </div>
+        <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label mt-2">Confirmar contraseña</label>
             <input formControlName="confirmClave" type="password" class="form-control" id="exampleInputPassword1" />
-            @if (formGroup.controls.clave.hasError('minLength')) {
-                <label style="color: red;">Caracteres caraverga</label>
-            }
+            
         </div>
         <button (click)="clickRegister()"  type="submit" class="btn btn-primary">Crear Usuario</button>
         

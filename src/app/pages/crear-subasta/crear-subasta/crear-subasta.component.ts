@@ -101,8 +101,10 @@ export class CrearSubastaComponent {
             title: `Producto ${this.newSubasta.nombre_producto} registrado con éxito`,
             text: '',
             confirmButtonColor: '#0d6efd',
-          });
-          this.router.navigate(['/login']);
+          }).then(()=>{
+            this.router.navigate(['/login/ver_subastas'])
+          });;
+          
         },
         error: (e: HttpErrorResponse) => {
           this.cargando = false;
@@ -110,6 +112,7 @@ export class CrearSubastaComponent {
         },
         
       });
+
     } catch (error) {
       console.error(error);
       console.log('No se pudo hacer peticion http');

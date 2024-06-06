@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #007bff;
+    
+  }
+  
+.header-left, .header-right {
+  display: flex;
+  gap: 15px; /* Espacio entre los elementos */
+}
+  
+.header a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight:600;
+}
+  

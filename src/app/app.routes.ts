@@ -18,23 +18,23 @@ export const routes: Routes = [
         component: InicioComponent,
       },
       
-      {
-        path: PATH.CREAR_SUBASTA,
-        title: 'Crear Subasta',
-        component: CrearSubastaComponent,
-      },
-      {
-        path: PATH.VER_SUBASTAS,
-        title: 'Ver Subasta',
-        component: VerSubastaComponent,
-        children:[]
-      },
       
       {
         path: PATH.LOGIN,
         title: 'Login',
         component: LoginComponent,
         children:[
+          {
+            path: PATH.CREAR_SUBASTA,
+            title: 'Crear Subasta',
+            component: CrearSubastaComponent,
+          },
+          {
+            path: PATH.VER_SUBASTAS,
+            title: 'Ver Subasta',
+            component: VerSubastaComponent,
+            children:[]
+          },
         ]
       },
       {

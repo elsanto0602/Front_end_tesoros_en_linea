@@ -1,12 +1,11 @@
 footer{
     text-align: center;
-    margin-top: 2rem;
+    margin-top: auto;
     background-color: #007bff;
     margin-top: auto;
     
 }
 
 p{
-    text-align: justify;
-    
+    text-align: justify;    
 }

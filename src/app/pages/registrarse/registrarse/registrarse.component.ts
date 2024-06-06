@@ -25,7 +25,9 @@ import { ErrorService } from '../../../services/error.service';
 export class RegistrarseComponent {
   @Input() data: any = [];
   @Output() onForm: EventEmitter<any> = new EventEmitter<any>();
-
+  get FormSignUp (){
+    return this.formGroup.controls
+  }
   cargando: boolean = false;
   private readonly _formBuilder = inject(FormBuilder);
 
@@ -44,16 +46,17 @@ export class RegistrarseComponent {
     private _errorService: ErrorService
   ) {
     //console.log('NOPASANADA');
-  }
 
+  }
+  
   formGroup = this._formBuilder.nonNullable.group(
     {
       names: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       telefono: ['', Validators.required],
       pais: ['', Validators.required],
-      clave: ['', Validators.required],
-      confirmClave: ['', Validators.required ],
+      clave: ['', [Validators.required, Validators.minLength(8)]],
+      confirmClave: ['', Validators.required],
     },
     { validators: contrasenaMatch }
   );
@@ -67,7 +70,9 @@ export class RegistrarseComponent {
     const pais = this.paisField.value;
     const clave = this.claveField.value;
     const confirmClave = this.confirmClaveField.value;
-
+    console.log(this.formGroup);
+    console.log(this.formGroup.status);
+    
     if (this.formGroup.valid) {
       //se crea el objeto usuario
       this.newUsuario = {
@@ -85,8 +90,17 @@ export class RegistrarseComponent {
       //TODO --> DIRECCIONAR AL LOGIN
       console.log(this.newUsuario);
 
+      
+    } else if (this.formGroup.invalid || this.formGroup.pending ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Todos los campos son requeridos',
+        text: 'Ingrese los datos',
+        confirmButtonColor: '#0d6efd',
+      });
       return;
-    } else if (this.emailField.hasError('email')) {
+    }
+    else if (this.emailField.hasError('email')) {
       Swal.fire({
         icon: 'error',
         title: 'Error en el correo',
@@ -95,23 +109,25 @@ export class RegistrarseComponent {
       });
       return;
     }
-    else if(this.claveField.hasError('minLength')){
-      Swal.fire({
-        icon: 'error',
-        title: 'Clave no cumple requisitos',
-        text: 'Ingrese al menos 9 caracteres incluyendo al menos 1 número  y 1 caractér down',
-        confirmButtonColor: '#0d6efd',
-      });
-      return;
-    } else if (!!contrasenaMatch) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Las contraseñas deben coincidir',
-        text: 'Ingrese correctamente las contraseñas',
-        confirmButtonColor: '#0d6efd',
-      });
-      return;
-    } else {
+    else if (!!contrasenaMatch) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Las contraseñas deben coincidir',
+      text: 'Ingrese correctamente las contraseñas',
+      confirmButtonColor: '#0d6efd',
+    });
+    return;
+  }
+    // else if(this.claveField.hasError('minlength')){
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: 'Clave no cumple requisitos',
+    //     text: 'Ingrese al menos 8 caracteres incluyendo al menos 1 número  y 1 caractér down',
+    //     confirmButtonColor: '#0d6efd',
+    //   });
+    //   return;
+    // } 
+     else {
       Swal.fire({
         icon: 'error',
         title: 'Todos los campos son obligatorios',
